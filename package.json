@@ -1,0 +1,14 @@
+{
+  "name": "technical-test",
+  "version": "1.0.0",
+  "description": "Serverless technical test",
+  "author": "Jose Duran Zarate",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^2.0.3",
+    "axios": "0.20.0",
+    "moment": "2.29.1",
+    "node-input-validator": "4.2.1",
+    "aws-sdk": "2.796.0"
+  }
+}

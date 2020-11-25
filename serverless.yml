@@ -1,0 +1,59 @@
+service: prueba-tecnica
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  apiGateway:
+    sshouldStartNameWithService: true  
+  environment:
+    SWAPI_BASE: https://swapi.py4e.com/api
+    TABLE_NAME: prueba-tecnica
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.TABLE_NAME}"
+
+functions:
+  getMovies:
+    handler: functions/movies.getMovies
+    events:
+      - http:
+          path: movies
+          method: get
+          cors: true
+  getPeople:
+    handler: functions/people.getPeople
+    events:
+      - http:
+          path: people
+          method: get
+          cors: true
+  saveCombination:
+    handler: functions/combination.saveCombination
+    events:
+      - http:
+          path: combination
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    DynamoDB:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: ID
+            AttributeType: S
+        KeySchema:
+          - AttributeName: ID
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.TABLE_NAME}
