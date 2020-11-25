@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "4bdd7c54-a1ee-4e02-885f-b51137ccf3e6",
+		"name": "prueba tecnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar peliculas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://1phz0qsv04.execute-api.us-east-1.amazonaws.com/dev/movies"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar personjes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://1phz0qsv04.execute-api.us-east-1.amazonaws.com/dev/people"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear combinación",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"movieId\": 5,\r\n    \"peopleId\": [\"Luke Skywalker\"],\r\n    \"userFullName\": \"Jose Luis\",\r\n    \"userEmail\": \"joseedra@gmail.com\"\r\n}   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://1phz0qsv04.execute-api.us-east-1.amazonaws.com/dev/combination"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

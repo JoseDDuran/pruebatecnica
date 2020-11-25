@@ -7,11 +7,13 @@ La aplicación permite listar tanto películas como personajes, y en otro lambda
 Este servicio ha sido separado en directorios.
 Por ejm `functions/movies.js`, donde en este fichero se guarda la configuración y lógica del lambda con respecto al recurso `movies`
 En `entry/validator`, almacenamos las validaciones de los request o parámetros que lleguen como petición a nuestra aplicación.
+En `resources/`, tendremos un archivo postman en el cual se exponen los endpoints
 
 ## Casos de prueba
 
-- 
-- API for a Mobile Application
+- Listado de peliculas
+- Listado de personajes
+- Creación de combinaciones
 
 ## Setup
 

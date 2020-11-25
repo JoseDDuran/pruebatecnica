@@ -5,7 +5,7 @@ async function getPeople(event, context, callback) {
     //QUERY TO SWAPI
     let people = await axios.get(`${SWAPI_BASE}/people`);
 
-    people = people.data.result.map(person => {
+    people = people.data.results.map(person => {
         return {
             name: person.name,
             gender: person.gender,
